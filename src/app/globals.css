@@ -2,10 +2,26 @@
   --max-width: 68.75rem;
   --border-radius: 0.75rem;
 
-  --foreground: black;
-  --background: white;
+  /* Font */
+  --font-size-standard: 1rem;
+  --font-size-title: 2rem;
 
-  --spacing: 1rem;
+  /* Spacing */
+  --spacing-standard: 1rem;
+  --spacing-small: 0.5rem;
+
+  /* Colors */
+  --dark-green: #243119;
+  --olive: #808000;
+  --black-bean: #301014;
+  --columbia-blue: #bfd7ea;
+  --platinum: #e0e1dd;
+
+  --foreground: var(--black-bean);
+  --background: var(--platinum);
+
+  --link-foreground: var(--dark-green);
+  --link-foreground-hover: var(--olive);
 }
 
 * {
@@ -17,6 +33,7 @@
 html,
 body {
   max-width: 100vw;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -24,11 +41,32 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-main);
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
-  color: inherit;
+  color: var(--link-foreground);
   text-decoration: none;
+  text-transform: lowercase;
+  border-bottom: 1px solid var(--link-foreground);
+  transition:
+    color 0.2s ease-in-out,
+    border-bottom-color 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--link-foreground-hover);
+  border-bottom-color: var(--link-foreground-hover);
 }
 
 h1,

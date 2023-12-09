@@ -3,6 +3,9 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Corben, Merriweather } from 'next/font/google';
 
+import Header from '@/components/header';
+
+import './reset.css';
 import './globals.css';
 
 const merriweather = Merriweather({
@@ -30,7 +33,8 @@ function Layout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body className={cn(merriweather.variable, corben.variable)}>
-        {children}
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );

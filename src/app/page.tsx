@@ -1,10 +1,13 @@
+import Link from 'next/link';
+
+import Routes from '@/lib/routes';
+
 import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>coffeemath</h1>
-      <p>A safe coffee place</p>
-    </main>
+    <Link href={Routes.Brew} className={styles.link}>
+      start brewing
+    </Link>
   );
 }
