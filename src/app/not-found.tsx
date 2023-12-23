@@ -9,7 +9,6 @@ function NotFound() {
     <div className={styles.container}>
       <h1>
         <strong>404</strong>
-        <br />
         page not found
       </h1>
       <Link href={Routes.Home}>Go home</Link>

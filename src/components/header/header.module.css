@@ -1,14 +1,12 @@
-.header {
+.container {
+  padding: var(--spacing-4);
   display: flex;
-  align-items: flex-end;
-  column-gap: var(--spacing-small);
-  flex-wrap: wrap;
-
-  line-height: 1;
-
-  padding: var(--spacing-standard);
+  align-items: center;
+  justify-content: center;
 }
 
-.title {
-  font-size: var(--font-size-title);
+@media (min-width: 768px) {
+  .container {
+    justify-content: flex-start;
+  }
 }

@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  column-gap: var(--spacing-3);
+  line-height: 1;
+  text-align: center;
+  border: none;
+  color: var(--foreground);
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: var(--spacing-1);
+  padding: var(--spacing-2) 0;
+}
+
+.brandName {
+  font-size: var(--font-size-title);
+  font-family: var(--font-title);
+  font-weight: 700;
+}
+
+.container:hover,
+.container:focus {
+  color: var(--foreground);
+}
+
+.container:hover .textContainer,
+.container:focus .textContainer {
+  box-shadow: 0 1px 0 0 var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    text-align: left;
+  }
+}

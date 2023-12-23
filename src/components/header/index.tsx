@@ -1,10 +1,11 @@
+import Branding from '@/components/branding';
+
 import styles from './header.module.css';
 
 function Header() {
   return (
-    <header className={styles.header}>
-      <h1 className={styles.title}>coffeemath</h1>
-      <span>a safe coffee place</span>
+    <header className={styles.container}>
+      <Branding />
     </header>
   );
 }

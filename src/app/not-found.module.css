@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: var(--spacing-standard);
+  row-gap: var(--spacing-4);
   text-align: center;
+}
+
+.container h1 {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-2);
+  margin: 0;
+  line-height: 1;
 }

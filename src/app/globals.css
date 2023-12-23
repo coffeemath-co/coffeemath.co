@@ -3,12 +3,17 @@
   --border-radius: 0.75rem;
 
   /* Font */
-  --font-size-standard: 1rem;
-  --font-size-title: 2rem;
+  --font-size-1: 1rem;
+  --font-size-2: 2rem;
+
+  --font-size-standard: var(--font-size-1);
+  --font-size-title: var(--font-size-2);
 
   /* Spacing */
-  --spacing-standard: 1rem;
-  --spacing-small: 0.5rem;
+  --spacing-1: 0.125rem;
+  --spacing-2: 0.25rem;
+  --spacing-3: 0.5rem;
+  --spacing-4: 1rem;
 
   /* Colors */
   --dark-green: #243119;
