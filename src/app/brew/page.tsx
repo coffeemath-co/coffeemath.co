@@ -14,16 +14,17 @@ const DEFAULT_BREW_RATIO: BrewRatio = {
   ratio: 2,
 };
 
+const DEFAULT_LOCK_MAP: Record<keyof BrewRatio, boolean> = {
+  coffeeInput: false,
+  coffeeOutput: false,
+  ratio: false,
+};
+
 function BrewPage() {
-  const [lockMap, setLockMap] = useState<Record<keyof BrewRatio, boolean>>({
-    coffeeInput: false,
-    coffeeOutput: false,
-    ratio: false,
-  });
+  const [lockMap, setLockMap] =
+    useState<Record<keyof BrewRatio, boolean>>(DEFAULT_LOCK_MAP);
 
-  const isLocked = Object.values(lockMap).filter(Boolean).length > 1;
-
-  const { register, watch, setValue } = useForm<BrewRatio>({
+  const { register, watch, setValue } = useForm({
     defaultValues: DEFAULT_BREW_RATIO,
   });
 
@@ -76,21 +77,6 @@ function BrewPage() {
     }
   }
 
-  function isInputDisabled(input: keyof BrewRatio): boolean {
-    return lockMap[input] || isLocked;
-  }
-
-  function isLockButtonDisabled(
-    input: keyof BrewRatio,
-    value: number,
-  ): boolean {
-    return (isLocked && !lockMap[input]) || value == null || isNaN(value);
-  }
-
-  function getLockButtonLabel(input: keyof BrewRatio): string {
-    return isInputDisabled(input) ? 'Unlock' : 'Lock';
-  }
-
   function renderInput(input: keyof BrewRatio) {
     return (
       <Fragment>
@@ -99,14 +85,15 @@ function BrewPage() {
           step="0.01"
           {...register(input, { valueAsNumber: true, onChange })}
           className={styles.input}
-          disabled={isInputDisabled(input)}
+          disabled={lockMap[input]}
         />
         <button
           type="button"
-          onClick={() => setLockMap({ ...lockMap, [input]: !lockMap[input] })}
-          disabled={isLockButtonDisabled(input, coffeeInput)}
+          onClick={() =>
+            setLockMap({ ...DEFAULT_LOCK_MAP, [input]: !lockMap[input] })
+          }
         >
-          {getLockButtonLabel(input)}
+          {lockMap[input] ? 'Unlock' : 'Lock'}
         </button>
       </Fragment>
     );
