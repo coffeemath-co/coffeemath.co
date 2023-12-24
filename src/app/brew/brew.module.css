@@ -4,7 +4,12 @@
   row-gap: var(--spacing-2);
 }
 
-.container > * {
+.inputGroup {
   display: flex;
   justify-content: space-between;
+}
+
+.input {
+  flex: 1;
+  text-align: right;
 }
