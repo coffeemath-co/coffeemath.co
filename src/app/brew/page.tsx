@@ -8,6 +8,12 @@ import NumberHelper from '@/helpers/number';
 
 import styles from './brew.module.css';
 
+const DEFAULT_BREW_RATIO: BrewRatio = {
+  coffeeInput: 18,
+  coffeeOutput: 36,
+  ratio: 2,
+};
+
 function BrewPage() {
   const [lockMap, setLockMap] = useState<Record<keyof BrewRatio, boolean>>({
     coffeeInput: false,
@@ -17,13 +23,13 @@ function BrewPage() {
 
   const isLocked = Object.values(lockMap).filter(Boolean).length > 1;
 
-  const { register, watch, setValue } = useForm<BrewRatio>();
+  const { register, watch, setValue } = useForm<BrewRatio>({
+    defaultValues: DEFAULT_BREW_RATIO,
+  });
 
   const coffeeInput = watch('coffeeInput');
   const coffeeOutput = watch('coffeeOutput');
   const ratio = watch('ratio');
-
-  console.log({ coffeeInput, coffeeOutput, ratio });
 
   function onChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value: valueAsString } = event.target;
